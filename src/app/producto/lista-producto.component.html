@@ -1,22 +1,36 @@
 <table class="table table-dark table-hover">
     <thead>
       <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Precio</th>
+        <th scope="col" (click)="setOrder('id')">ID</th>
+        <th scope="col" (click)="setOrder('nombre')">Nombre</th>
+        <th scope="col" (click)="setOrder('precio')">Precio</th>
         <th scope="col">Ver</th>
         <th scope="col">Editar</th>
         <th scope="col">Borrar</th>
+        <th scope="col"><i class="fa-solid fa-sort" (click)="sort()"></i></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let producto of productos">
+      <tr *ngFor="let producto of productos2">
         <td>{{producto.id}}</td>
         <td>{{producto.nombre}}</td>
         <td>$ {{producto.precio}}</td>
         <td><button class="btn btn-outline-primary" routerLink="/detalle/{{producto.id}}"><i class="fa-solid fa-eye"></i> Ver</button></td>
         <td><button class="btn btn-outline-warning" routerLink="/editar/{{producto.id}}"><i class="fa-solid fa-pen-to-square"></i> Editar</button></td>
         <td><button class="btn btn-outline-danger" (click)= "borrar(producto.id)" ><i class="fa-solid fa-trash-can"></i> Eliminar</button></td>
+        <td></td>
       </tr>
-    </tbody>
-  </table>
+      <br>
+      <tr>
+        <td><i class="fa-solid fa-angles-left fa-2x" (click)="rewind()"></i></td>
+        <td colspan="5">
+        <!--<td colspan = "3">-->
+        <span *ngFor="let p of totalPages ; let i =index">
+          <a style="cursor: pointer" (click)="setPages(i)" text-float="auto"
+            [ngClass]="{'text-warning': i === page}">{{i+1}}&nbsp;&nbsp;</a>
+          </span>
+        </td>
+        <td><i class="fa-solid fa-angles-right fa-2x" (click)="forward()"></i></td>
+      </tr>
+  </tbody>
+</table>
