@@ -6,11 +6,11 @@ import { ListaProductoComponent } from './producto/lista-producto.component';
 import { NuevoProductoComponent } from './producto/nuevo-producto.component';
 
 const routes: Routes = [
-  {path:'', component: ListaProductoComponent},
+  {path:'lista', component: ListaProductoComponent},
   {path:'detalle/:id', component: DetalleProductoComponent},
   {path:'nuevo', component: NuevoProductoComponent},
   {path:'editar/:id', component: EditarProductoComponent},
-  {path:'**', redirectTo: '', pathMatch:'full'}  
+  {path:'**', redirectTo: 'lista', pathMatch:'full'}  
 ];
 
 @NgModule({

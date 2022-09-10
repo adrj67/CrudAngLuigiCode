@@ -9,11 +9,16 @@ import { Producto } from '../models/producto';
 export class ProductoService {
 
   productoURL = 'http://localhost:8080/producto/';
+  productoURL2 = 'http://localhost:8080/producto/productos?';
 
   constructor(private httpClient: HttpClient) { }
 
   public lista(): Observable<Producto[]>{
     return this.httpClient.get<Producto[]>(this.productoURL + 'lista');
+  }
+
+  public productos(page:number, size: number,order: string, asc:boolean): Observable<any>{
+    return this.httpClient.get<any>(this.productoURL2 + `page=${page}&size=${size}&order=${order}&asc=${asc}`);
   }
 
   public detail(id: number): Observable<Producto>{

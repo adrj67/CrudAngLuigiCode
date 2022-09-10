@@ -12,6 +12,14 @@ import { ProductoService } from '../service/producto.service';
 export class ListaProductoComponent implements OnInit {
 
   productos: Producto[] = [];
+  productos2: Array<any>;
+  page: number = 0;
+  size: number = 5;
+  order: string = 'id';
+  asc: boolean = true;
+  isFirst: boolean = false;
+  isLast: boolean = false;
+  totalPages: Array<number>;
   
 
   constructor(
@@ -20,15 +28,54 @@ export class ListaProductoComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.cargarProductos();
+    //this.cargarProductos();
+    this.cargarProductos2();
   }
 
   cargarProductos(): void {
-    this.productoService.lista().subscribe(
-      data => {this.productos = data;
+    this.productoService.lista().subscribe({
+      next: data => {this.productos = data;
       },
-      err => console.log(err)
-    )
+      error: err => console.log(err)
+    })
+  }
+
+  cargarProductos2(): void {
+    this.productoService.productos(this.page, this.size, this.order, this.asc).subscribe({
+      next: data => {
+        this.productos2 = data.content; //data.content
+        this.isFirst = data.first;
+        this.isLast = data.last;
+        this.totalPages = new Array(data['totalPages']);
+        console.log(data);
+      },
+      error: err => {
+        console.log(err.error);}
+      })
+  }
+  sort(): void {
+    this.asc = !this.asc;
+    this.cargarProductos2();
+  }
+  rewind(): void {
+    if (!this.isFirst) {
+      this.page--;
+      this.cargarProductos2();
+    }
+  }
+  forward(): void {
+    if (!this.isLast) {
+      this.page++;
+      this.cargarProductos2();
+    }
+  }
+  setPages(page:number): void {
+    this.page = page;
+    this.cargarProductos2();
+  }
+  setOrder(order:string){
+    this.order = order;
+    this.cargarProductos2();
   }
 
   borrar(id: any){

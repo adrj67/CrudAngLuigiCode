@@ -14,7 +14,10 @@
                 </div>
                 <br>
                 <div class="d-grid gap-2 col-md-12 mx-auto">
-                    <button  class="btn btn-outline-success btn-block" [disabled]="!f.valid">Crear</button>
+                    <button  class="btn btn-outline-success btn-block" [disabled]="!f.valid">
+                        <i class="fa-solid fa-circle-plus"></i> Crear</button>
+                    <button  class="btn btn-outline-primary btn-block" routerLink="/lista">
+                        <i class="fa-solid fa-circle-arrow-left"></i> Volver</button>
                 </div>
             </form>
         </div>
