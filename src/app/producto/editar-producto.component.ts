@@ -23,34 +23,34 @@ export class EditarProductoComponent implements OnInit {
   ngOnInit() {
     const id = this.activatedRoute.snapshot.params['id'];
     // alert(id); comprobar si funciona por consola
-    this.productoService.detail(id).subscribe(
-      data => {
+    this.productoService.detail(id).subscribe({
+      next: data => {
         this.producto = data;
       },
-      err => {
-        this.toastr.error(err.error.mensaje, 'Fail', {
+      error: err => {
+        this.toastr.error(err.error, 'Fail', { //err.error.mensaje
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.router.navigate(['/']);
     }
-    );
+    });
   }
   onUpdate(): void {
     const id = this.activatedRoute.snapshot.params['id'];
-    this.productoService.update(id, this.producto).subscribe(
-      data => {
+    this.productoService.update(id, this.producto).subscribe({
+      next: data => {
         this.toastr.success('Producto Actualizado', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
-        this.router.navigate(['/']);
+        this.router.navigate(['/lista']);
       },
-      err => {
-        this.toastr.error(err.error.mensaje, 'Fail', {
+      error: err => {
+        this.toastr.error(err.error.mensaje, 'Fail', {//err.error.mensaje
           timeOut: 3000, positionClass: 'toast-top-center'
         });
-        this.router.navigate(['/']);
+        //this.router.navigate(['/']);
       }
-    );
+    });
   }
 
 }

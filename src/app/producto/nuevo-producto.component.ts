@@ -26,20 +26,20 @@ export class NuevoProductoComponent implements OnInit {
 
   onCreate(): void {
     const producto = new Producto(this.nombre, this.precio);
-    this.productoService.save(producto).subscribe(
-      data => {
+    this.productoService.save(producto).subscribe({
+      next: data => {
         this.toastr.success('Producto Creado', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
-        this.router.navigate(['/']);
+        this.router.navigate(['/lista']);
       },
-      err => {
-        this.toastr.error(err.error.mensaje, 'Fail', {
+      error: err => {
+        this.toastr.error(err.error.mensaje, 'Fail', { //err.error.mensaje
           timeOut: 3000, positionClass: 'toast-top-center'
         });
-        this.router.navigate(['/']);
+        //this.router.navigate(['/']);
       }
-    )
+    })
   }
 
 }

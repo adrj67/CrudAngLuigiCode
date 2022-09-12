@@ -1,3 +1,4 @@
+<app-menu></app-menu>
 <div class="container" *ngIf="producto">
     <div class="row -mt-5">
         <div class="col-md-4 mx-auto">
@@ -14,7 +15,10 @@
                 </div>
                 <br>
                 <div class="d-grid gap-2 col-md-12 mx-auto">
-                    <button  class="btn btn-outline-success btn-block" [disabled]="!f.valid">Actualizar</button>
+                    <button  class="btn btn-outline-success btn-block" [disabled]="!f.valid">
+                        <i class="fa-solid fa-marker"></i> Actualizar</button>
+                    <button  class="btn btn-outline-primary btn-block" [disabled]="!f.valid" routerLink="/lista">
+                        <i class="fa-solid fa-circle-arrow-left"></i> Volver</button>
                 </div>
             </form>
         </div>

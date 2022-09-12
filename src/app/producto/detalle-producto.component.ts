@@ -22,21 +22,21 @@ export class DetalleProductoComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['id'];
-    this.productoService.detail(id).subscribe(
-      data => {
+    this.productoService.detail(id).subscribe({
+      next: data => {
         this.producto = data;
       },
-      err => {
-        this.toastr.error(err.error.mensaje, 'Fail', {
+      error: err => {
+        this.toastr.error(err.error, 'Fail', { //(err.error.mensaje, 'Fail', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.volver();
       }
-    );
+    });
   }
 
   volver(): void {
-    this.router.navigate(['/']);
+    this.router.navigate(['/lista']);
   }
 
 }

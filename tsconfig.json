@@ -2,6 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+   // "noImplicitAny": false, //agregado por error en "Token.Service. Ts renglon 42 "authority =>""
     "strictNullChecks": false,//agregado por error en editar-producto "producto: Producto = null;"
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
