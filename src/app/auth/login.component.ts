@@ -14,12 +14,12 @@ import { TokenService } from '../service/token.service';
 })
 export class LoginComponent implements OnInit {
 
-  isLogged = false;
-  isLoginFail = false;
+ // isLogged = false;
+  //isLoginFail = false;
   loginUsuario : LoginUsuario;
   nombreUsuario: string;
   password : string;
-  roles: string[] = [];
+  //roles: string[] = [];
   errMsj : string;
 
   constructor(
@@ -30,33 +30,33 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if(this.tokenService.getToken()) {
+   /* if(this.tokenService.getToken()) {
       this.isLogged = true;
       this.isLoginFail = false;
       this.roles = this.tokenService.getUserAuthorities();
       //console.log(this.tokenService);
-    }
+    } video 16 */
   }
 
   onLogin():void {
     this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
     this.authService.login(this.loginUsuario).subscribe({
       next: data => {
-        this.isLogged = true;
+        //this.isLogged = true;
         //this.isLoginFail = false;
 
         this.tokenService.setToken(data.token);
-        this.tokenService.setUserName(data.nombreUsuario);
+        /*this.tokenService.setUserName(data.nombreUsuario);
         this.tokenService.setUserAuthorities(data.authorities);
-        this.roles = data.authorities;
+        this.roles = data.authorities;*/
         //console.log(this.tokenService);
-        this.toastr.success('Bienvenido ' + data.nombreUsuario, 'OK', {
+        /*this.toastr.success('Bienvenido ' + data.nombreUsuario, 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
-        });
+        });*/
         this.router.navigate(['/']);
     },
       error: err => {
-        this.isLogged = false;
+        //this.isLogged = false;
         //this.isLoginFail = true;
         this.errMsj = err.error;
         //console.error(err.error);

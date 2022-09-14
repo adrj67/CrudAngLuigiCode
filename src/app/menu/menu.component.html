@@ -1,24 +1,33 @@
 <nav class="navbar navbar-dark navbar-expand-lg bg-dark border-3 border-bottom border-primary" role="navigation">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Ir <i class="fa-solid fa-handshake-angle"></i></a>
+      <a class="navbar-brand" href="/login">Ir <i class="fa-solid fa-handshake-angle"></i></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav  ml-auto">
+      <ul class="navbar-nav  mr-auto">
         <li class="nav-item">
           <a class="nav-link" routerLink="/"><i class="fa-solid fa-house"></i> Inicio</a>
         </li>
         <li class="nav-item" *ngIf="isLogged">
           <a class="nav-link" routerLink="/lista"><i class="fa-solid fa-table-list"></i> Lista</a>
         </li>
-        <li class="nav-item" *ngIf="!isLogged">
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link" routerLink="/nuevo"><i class="fa-solid fa-circle-plus"></i> Nuevo</a>
+        </li>
+        <!--<li class="nav-item" *ngIf="!isLogged">
           <a class="nav-link" routerLink="/login"><i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesion</a>
         </li>
         <li class="nav-item" *ngIf="isLogged" (click)="onLogOut()">
           <a class="nav-link" style="cursor: pointer"><i class="fa-solid fa-door-open" ></i> Cerrar Sesion</a>
-        </li>
+        </li> reemplazados en video 15-->
       </ul>
+      <form class="d-flex" role="search"><!--agregado viedo 15 en reemplazo de lo anterior-->
+        <button class="btn btn-outline-success" routerLink="/login" *ngIf="!isLogged">
+          <i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesion</button>
+          <button class="btn btn-outline-danger" (click)="onLogOut()" *ngIf="isLogged">
+            <i class="fa-solid fa-door-open" ></i> Cerrar Sesion</button>
+      </form>
     </div>
 </nav>  

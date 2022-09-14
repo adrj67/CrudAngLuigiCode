@@ -19,7 +19,7 @@ export class RegistroComponent implements OnInit {
   password : string;
   errMsj : string;
 
-  isLogged = false;
+  //isLogged = false; video 16
 
   constructor(
     private tokenService: TokenService,
@@ -29,9 +29,9 @@ export class RegistroComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if(this.tokenService.getToken()) {
+    /*if(this.tokenService.getToken()) {
       this.isLogged = true;
-    }
+    } video 16*/
   }
 
   onRegister():void {

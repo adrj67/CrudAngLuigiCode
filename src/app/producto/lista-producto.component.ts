@@ -24,7 +24,7 @@ export class ListaProductoComponent implements OnInit {
 
   totalPages: Array<number>;  
 
-  roles: string[];
+  //roles: string[]; video 15
   isAdmin = false;
 
   constructor(
@@ -36,12 +36,13 @@ export class ListaProductoComponent implements OnInit {
   ngOnInit(): void {
     //this.cargarProductos();
     this.cargarProductos2();
-    this.roles = this.tokenService.getUserAuthorities();
+    /*this.roles = this.tokenService.getUserAuthorities(); video 15
     this.roles.forEach(rol => {
       if (rol === 'ROLE_ADMIN') {
         this.isAdmin = true;
       }
-    })
+    })*/
+    this.isAdmin = this.tokenService.isAdmin();
   }
 
   cargarProductos(): void {
