@@ -26,7 +26,7 @@
       <form class="d-flex" role="search"><!--agregado viedo 15 en reemplazo de lo anterior-->
         <button class="btn btn-outline-success" routerLink="/login" *ngIf="!isLogged">
           <i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesion</button>
-          <button class="btn btn-outline-danger" (click)="onLogOut()" *ngIf="isLogged">
+          <button class="btn btn-outline-danger" (click)="onLogOut()" *ngIf="isLogged"type="reset">
             <i class="fa-solid fa-door-open" ></i> Cerrar Sesion</button>
       </form>
     </div>
