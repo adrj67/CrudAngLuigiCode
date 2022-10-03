@@ -23,5 +23,4 @@ export class IndexComponent implements OnInit {
     } video 15*/
     this.nombreUsuario = this.tokenService.getUserName();
   }
-
 }

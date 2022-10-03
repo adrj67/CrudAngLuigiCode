@@ -19,7 +19,8 @@ import { LoginComponent } from './auth/login.component';
 import { RegistroComponent } from './auth/registro.component';
 import { MenuComponent } from './menu/menu.component';
 import { IndexComponent } from './index/index.component';
-
+import { SendEmailComponent } from './changepassword/send-email.component';
+import { ChangePasswordComponent } from './changepassword/change-password.component';
 
 
 @NgModule({
@@ -33,6 +34,8 @@ import { IndexComponent } from './index/index.component';
     RegistroComponent,
     MenuComponent,
     IndexComponent,
+    SendEmailComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { IndexComponent } from './index/index.component';
     HttpClientModule,
     FormsModule,
   ],
+
   providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
