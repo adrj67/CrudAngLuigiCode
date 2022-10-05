@@ -44,6 +44,7 @@ import { ChangePasswordComponent } from './changepassword/change-password.compon
     ToastrModule.forRoot(), // ToastrModule added //external
     HttpClientModule,
     FormsModule,
+   
   ],
 
   providers: [interceptorProvider],

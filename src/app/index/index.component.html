@@ -1,73 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- CSS only -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
-  <title>CRUD Pagina de Inicio</title>
-  
-
-</head>
-<app-menu></app-menu>
-<body class="p-3 m-0 border-0 bd-example">
-<!--ejemplo de jumbotron-->
-<!--<div class="container">
-  <div class ="jumbotron">
-      <h1 *ngIf="!nombreUsuario" class="display-4">Bienvenido a CRUD!</h1>
-      <h1 *ngIf="nombreUsuario" class="display-4">Hola, {{nombreUsuario}}!</h1>
-      <p class="lead">Para ingresar logueate haciendo click en el boton "Iniciar Sesion", arriba a la derecha.</p>
-      <hr class="my-4">
-      <p>En caso de no tener una cuenta, puedes registrarte haciendo click en el boton de aqui abajo.</p>
-      <a class="btn btn-primary btn-lg" href="/registro" role="button">Registrate!</a>
-  </div>
-</div>-->
-
-<!-- ****** Carousel ****** -->
-<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#555" dy=".3em">First slide</text></svg>
-
-      <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>CRUD pagina de inicio</title>
+  </head>
+  <header>
+    <app-menu></app-menu>
+  </header>
+  <body>
+    <!--ejemplo de jumbotron-->
+    <div class="container">
+    <div class="container">
+      <div class="jumbotron">
+        <h1 *ngIf="!nombreUsuario" class="display-4">Bienvenido a CRUD!</h1>
+        <h1 *ngIf="nombreUsuario" class="display-4">
+          Hola, {{ nombreUsuario }}!
+        </h1>
+        <p class="lead">
+          Para ingresar logueate haciendo click en el boton "Iniciar Sesion",
+          arriba a la derecha.
+        </p>
+        <p class="lead">
+          Si no recuerdas tu clave, haz click en el boton de abajo.
+        </p>
+        <a
+          class="btn btn-warning btn-lg"
+          href="/sendemail"
+          role="button"
+          style="margin: 10px"
+          >Cambiar clave</a
+        >
+        <hr class="my-4" />
+        <p>
+          En caso de no tener una cuenta, puedes registrarte haciendo click en
+          el boton de aqui abajo.
+        </p>
+        <a
+          class="btn btn-primary btn-lg"
+          href="/registro"
+          role="button"
+          style="margin: 10px"
+          >Registrate!</a
+        >
+        <hr class="my-4" />
       </div>
     </div>
-    <div class="carousel-item">
-      <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Second slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#666"></rect><text x="50%" y="50%" fill="#444" dy=".3em">Second slide</text></svg>
+    <!--Fin jumbotron-->
 
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Some representative placeholder content for the second slide.</p>
+    <!-- inicio cards boostrap v5.2 ="../../assets/gallery/01.jpg"-->
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card h-100">
+          <img src="../../assets/gallery/01.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Producto 1</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Compre ahora {{ nombreUsuario }}!!</small>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="../../assets/gallery/02.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Producto 2</h5>
+            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Compre ahora !!</small>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="../../assets/gallery/03.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Producto 3</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Compre ahora !!</small>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="carousel-item">
-      <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Third slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#555"></rect><text x="50%" y="50%" fill="#333" dy=".3em">Third slide</text></svg>
-
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Some representative placeholder content for the third slide.</p>
-      </div>
+    <!-- Fin cards boostrap v5.2 -->
     </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+  </body>
 </html>
