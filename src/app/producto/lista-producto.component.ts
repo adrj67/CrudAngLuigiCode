@@ -15,14 +15,16 @@ export class ListaProductoComponent implements OnInit {
   productos2: Array<any>;
   productos: Producto[] = [];
   page: number = 0;
-  size: number = 5;
+  size: number = 8;
   order: string = 'id';
   asc: boolean = true;
 
   isFirst: boolean = false;
   isLast: boolean = false;
 
-  totalPages: Array<number>;  
+  totalPages: Array<number>;
+
+  criterio = '';
 
   //roles: string[]; video 15
   isAdmin = false;
@@ -34,7 +36,7 @@ export class ListaProductoComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    //this.cargarProductos();
+    this.cargarProductos();
     this.cargarProductos2();
     /*this.roles = this.tokenService.getUserAuthorities(); video 15
     this.roles.forEach(rol => {

@@ -8,8 +8,8 @@
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item"><b>ID: </b>{{producto.id}}</li>
-                  <li class="list-group-item"><b>Nombre: </b>{{producto.nombre}}</li>
-                  <li class="list-group-item"><b>Precio: </b>$ {{producto.precio}}</li>
+                  <li class="list-group-item"><b>Nombre: </b>{{producto.nombre | titlecase}}</li>
+                  <li class="list-group-item"><b>Precio: </b>{{producto.precio | currency}}</li>
                 </ul>
                 <div class="card-footer text-center">
                     <div class="d-grid gap-4">
