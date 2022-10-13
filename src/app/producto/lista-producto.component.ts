@@ -15,7 +15,7 @@ export class ListaProductoComponent implements OnInit {
   productos2: Array<any>;
   productos: Producto[] = [];
   page: number = 0;
-  size: number = 5;
+  size: number = 4;
   order: string = 'id';
   asc: boolean = true;
 

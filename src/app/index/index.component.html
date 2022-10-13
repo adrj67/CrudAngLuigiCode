@@ -18,7 +18,7 @@
       <div class="jumbotron">
         <h1 *ngIf="!nombreUsuario" class="display-4">Bienvenido a CRUD!</h1>
         <h1 *ngIf="nombreUsuario" class="display-4">
-          Hola, {{ nombreUsuario }}!
+          Hola, {{ nombreUsuario | uppercase}}!
         </h1>
         <p class="lead">
           Para ingresar logueate haciendo click en el boton "Iniciar Sesion",
